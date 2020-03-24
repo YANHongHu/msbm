@@ -8,6 +8,7 @@ import os
 from django.db.models import Sum,Count
 # Create your views here.
 
+
 def login(request):
     if request.method == 'GET':
         code = request.GET.get('code')
@@ -49,6 +50,7 @@ def my_table(request):
 
         return JsonResponse(data=response, safe=False)
 
+
 def my_create(request):
     # 返回创建的活动的列表
     if request.method == 'GET':
@@ -72,6 +74,7 @@ def my_create(request):
 
         return JsonResponse(data=response, safe=False)
 
+
 # 获取单个活动信息
 def activity(request):
     if request.method == 'GET':
@@ -87,16 +90,17 @@ def activity(request):
         response['activity_owner'] = activity.activity_owner.user_id
         response['activity_owner_tel'] = activity.activity_owner.telephone
         response['activity_max'] = activity.activity_people_number
-        response['activity_apply_number'] = len(models.UserActivity.objects.filter(activity_id=activity_id,effective=1))
+        response['activity_apply_number'] = len(models.UserActivity.objects.filter(activity_id=activity_id, effective=1))
 
         return JsonResponse(data=response, safe=False)
+
 
 # 查看报名某个活动的用户
 def apply_user(request):
     if request.method == 'GET':
         activity_id = request.GET.get('activity_id')
         activity_id_ob = models.Activity.objects.get(activity_id=activity_id)
-        users = models.UserActivity.objects.filter(activity_id=activity_id_ob, effective=1)
+        users = models.UserActivity.objects.filter(activity_id=activity_id, effective=1)
         peoples = []
         for user in users:
             # user.user_id
@@ -113,6 +117,7 @@ def apply_user(request):
             peoples.append(people)
 
         return JsonResponse(data=peoples, safe=False)
+
 
 def down_activity_excel(request):
     if request.method == 'GET':
@@ -178,8 +183,6 @@ def down_activity_excel(request):
         response['Content-Disposition'] = 'attachment;filename="apply_infomation.xlsx"' # 重命名文件
 
         return response
-
-
 
 
 # 获得access_token 并放入缓存
@@ -285,7 +288,7 @@ def qr_code(request):
             # return HttpResponse(image_data, content_type="image/png")
             # return redirect('http://www.ifeels.cn:35558/qucode-' + scene + '/')
             # return HttpResponse(qr_response.content)
-            return JsonResponse(data={'url':'https://www.ifeels.cn/msbmstatic/qrimg/' + scene + '.jpg/'},safe=False)
+            return JsonResponse(data={'url':'https://www.ifeels.cn/msbmstatic/qrimg/' + scene + '.jpg/'}, safe=False)
         else:
             with open('static/qrimg/'+ scene + '.txt', 'wb') as f:
                 f.write(qr_response.content)
@@ -312,6 +315,7 @@ def qr_code(request):
         #     # img_data = qr_response
         #     # return redirect('http://www.ifeels.cn:35558/qucode-' + scene + '/')
         #
+
 
 def get_qr_img(request):
     aid = request.GET.get('scene')
@@ -342,6 +346,7 @@ def submit_form(request):
         # 获取用户信息
         user_id = request.POST.get('openid')
         activity_id = request.POST.get('activity_id')
+        # 得到对应的用户和活动对象
         user_id_ob = models.UserInformation.objects.get(user_id=user_id)
         activity_id_ob = models.Activity.objects.get(activity_id=activity_id)
         # 获取到这个活动有哪些选项需要填
@@ -357,11 +362,11 @@ def submit_form(request):
         user_dict = json.loads(user_dict)
 
         # 判断如果用户已经报名，那么就直接覆盖掉
-        is_apply = models.UserActivity.objects.filter(user_id=user_id_ob,activity_id=activity_id_ob)
+        is_apply = models.UserActivity.objects.filter(user_id=user_id, activity_id=activity_id)
         if len(is_apply) > 0 :
             # 说明已经报过名，筛选出用户id和活动id匹配的行
             is_apply.update(effective=1)
-            values = models.UserActivityValue.objects.filter(user_id=user_id_ob, activity_id=activity_id_ob)
+            values = models.UserActivityValue.objects.filter(user_id=user_id, activity_id=activity_id)
             for option_name in options_name:
                 # 对于每个要填入的列循环，从前端获取，并更新进入数据库
                 now_info = user_dict[option_name]
@@ -369,10 +374,10 @@ def submit_form(request):
 
         # 如果没有报名，那就创建报名信息
         else:
-            models.UserActivity.objects.create(user_id=user_id_ob, activity_id=activity_id_ob)
+            models.UserActivity.objects.create(user_id=user_id, activity_id=activity_id)
             for option_name in options_name:
                 now_info = user_dict[option_name]
-                models.UserActivityValue.objects.create(user_id=user_id_ob, activity_id=activity_id_ob, info=option_name,value=now_info)
+                models.UserActivityValue.objects.create(user_id=user_id, activity_id=activity_id, info=option_name, value=now_info)
 
         response_dict = {
             'status': True
@@ -419,6 +424,7 @@ def update_user_information(request):
         response_dict['status'] = True
         return JsonResponse(data=response_dict, safe=False)
 
+
 # 用户取消报名
 def cancel_activity_sign(request):
     if request.method == 'GET':
@@ -431,6 +437,7 @@ def cancel_activity_sign(request):
             'status': True
         }
         return JsonResponse(data=response_dict, safe=False)
+
 
 # 获取个人信息
 def accept_user_information(request):
@@ -478,6 +485,7 @@ def is_apply(request):
             response['is_apply'] = 0
         return JsonResponse(data=response, safe=False)
 
+
 # 判断是否存在这个用户
 def has_user(request):
     if request.method == 'GET':
@@ -485,11 +493,12 @@ def has_user(request):
         openid = request.GET.get('openid')
         user = models.UserInformation.objects.filter(user_id=openid)
         response = {}
-        if len(user) > 0 :
+        if len(user) > 0:
             response['has_user'] = 1
         else:
             response['has_user'] = 0
         return JsonResponse(data=response, safe=False)
+
 
 # 用户反馈
 def user_idea(request):
@@ -508,14 +517,17 @@ def user_idea(request):
         response['status'] = 1
         return JsonResponse(data=response, safe=False)
 
+
 def ok(request):
     return HttpResponse('ok')
+
 
 def path_to_scene(request):
     path = request.GET.get('path')
     response = {}
     response['scene'] = path.split('=')[1]
     return JsonResponse(data=response, safe=False)
+
 
 def e_activity(request):
     if request.method == 'GET':

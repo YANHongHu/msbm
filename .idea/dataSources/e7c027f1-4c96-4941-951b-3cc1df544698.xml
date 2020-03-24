@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="msbm@118.89.221.186">
-  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.7">
+  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.17">
     <root id="1">
       <DefaultCasing>exact</DefaultCasing>
     </root>
@@ -12,7 +12,6 @@
     </schema>
     <schema id="4" parent="1" name="msbm">
       <Current>1</Current>
-      <Visible>1</Visible>
       <Collation>latin1_swedish_ci</Collation>
     </schema>
     <schema id="5" parent="1" name="mysql">
