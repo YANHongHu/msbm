@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f351d938-1fc3-4a94-ba56-739f9f4f1e2e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e7c027f1-4c96-4941-951b-3cc1df544698.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e7c027f1-4c96-4941-951b-3cc1df544698.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/msbm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/msbm.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sshConfigs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app01msbm/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app01msbm/views.py" afterDir="false" />
     </list>
@@ -64,7 +60,6 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -113,18 +108,6 @@
       <method v="2" />
     </configuration>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -141,24 +124,24 @@
       <workItem from="1581557982061" duration="246000" />
       <workItem from="1581753530871" duration="597000" />
       <workItem from="1581963432489" duration="445000" />
+      <workItem from="1585493481238" duration="1536000" />
+      <workItem from="1586077357971" duration="81000" />
+      <workItem from="1593256772896" duration="986000" />
+      <workItem from="1593791845797" duration="1000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="496" y="225" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581753568624">
+    <state x="496" y="225" key="#Deployment" timestamp="1593256915920">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="496" y="225" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1581753568624" />
-    <state x="397" y="199" key="SettingsEditor" timestamp="1578619646179">
+    <state x="496" y="225" key="#Deployment/0.0.1792.1120@0.0.1792.1120" timestamp="1593256915920" />
+    <state x="768" y="459" key="publish.login" timestamp="1593257032607">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="397" y="199" key="SettingsEditor/0.0.1792.1120@0.0.1792.1120" timestamp="1578619646179" />
-    <state x="767" y="460" key="publish.login" timestamp="1578619663552">
-      <screen x="0" y="0" width="1792" height="1120" />
-    </state>
-    <state x="767" y="460" key="publish.login/0.0.1792.1120@0.0.1792.1120" timestamp="1578619663552" />
+    <state x="768" y="459" key="publish.login/0.0.1792.1120@0.0.1792.1120" timestamp="1593257032607" />
   </component>
 </project>

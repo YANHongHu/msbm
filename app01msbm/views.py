@@ -46,7 +46,7 @@ def my_table(request):
             act['activity_start_time'] = activity.activity_id.activity_start_time.strftime('%Y-%m-%d')
             act['activity_end_time'] = activity.activity_id.activity_end_time.strftime('%Y-%m-%d')
             act['activity_id'] = activity.activity_id.activity_id
-            response.insert(0,act)
+            response.insert(0, act)
 
         return JsonResponse(data=response, safe=False)
 
@@ -67,7 +67,7 @@ def my_create(request):
             act['activity_start_time'] = activity.activity_start_time.strftime('%Y-%m-%d')
             act['activity_end_time'] = activity.activity_end_time.strftime('%Y-%m-%d')
             act['activity_id'] = activity.activity_id
-            act['activity_max'] = activity.activity_people_number # 最大报名人数
+            act['activity_max'] = activity.activity_people_number  # 最大报名人数
             apply_count = len(models.UserActivity.objects.filter(activity_id=activity.activity_id,effective=1))
             act['activity_count'] = apply_count
             response.insert(0, act)
@@ -151,7 +151,6 @@ def down_activity_excel(request):
             for single_info in user_info:
                 now_user[single_info.info] = single_info.value
             response.append(now_user)   # 把每个人的信息字典加入回复前端的字典中
-
 
         # 把回复前端的response内的字典数据转化为excel文件
         excel_content = []  # 要写入excel的二维列表
